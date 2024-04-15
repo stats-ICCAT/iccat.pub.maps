@@ -11,6 +11,7 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     iccat.pub.base,
+    data.table,
     colorspace,
     scales,
     maps,
