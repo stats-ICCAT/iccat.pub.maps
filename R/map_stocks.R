@@ -86,10 +86,9 @@ map.stocks = function(species_codes, stock_codes = NULL,
 
   map = map + theme(legend.position = "right")
 
-  if(fill_areas == FALSE) map = map + guides(fill = "none")
-  else map = map + new_scale_fill()
-
   if(add_labels == TRUE ) map = map + guides(fill = "none", color = "none")
+  if(fill_areas == FALSE) map = map + guides(fill = "none")
+  else                    map = map + new_scale_fill()
 
   return(
     map
