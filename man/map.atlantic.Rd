@@ -12,7 +12,8 @@ map.atlantic(
   axis_font_size = DEFAULT_AXIS_FONT_SIZE,
   fill_color = DEFAULT_FILL_COLOR,
   border_color = DEFAULT_BORDER_COLOR,
-  border_line_width = DEFAULT_BORDER_LINE_WIDTH
+  border_line_width = DEFAULT_BORDER_LINE_WIDTH,
+  force_show_all_atlantic = FALSE
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ map.atlantic(
 \item{border_color}{TBD}
 
 \item{border_line_width}{TBD}
+
+\item{force_all_atlantic}{TBD}
 }
 \value{
 TBD
