@@ -1,17 +1,18 @@
 library(iccat.dev.base)
 
-raw_geometries_for = function(area_codes, connection = DB_GIS()) {
+raw_geometries_for = function(area_codes, connection = DB_GIS(server = "ATENEA\\SQL22")) {
   return(
     tabular_query(
       connection,
       paste0("
         SELECT
           CODE,
+          TYPE_CODE,
           NAME_EN,
           NAME_ES,
           NAME_FR,
-          ICCAT_AREA_INTERSECTION,
-         ([GEOMETRY].MakeValid()).STAsText() AS GEOMETRY_WKT
+          SURFACE_IN_ICCAT_AREA,
+         (GEOMETRY_CUT.MakeValid()).STAsText() AS GEOMETRY_WKT
         FROM
           [AREAS]
         WHERE
@@ -23,7 +24,7 @@ raw_geometries_for = function(area_codes, connection = DB_GIS()) {
 
 SPECIES_TO_AREAS_MAPPINGS =
   tabular_query(
-    DB_GIS(), "
+    DB_GIS(server = "ATENEA\\SQL22"), "
     SELECT
       S.SPECIES_CODE,
       SA.STOCK_CODE,

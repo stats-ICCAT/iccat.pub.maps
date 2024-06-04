@@ -7,10 +7,9 @@
 \format{
 \describe{
   \item{CODE}{The area code}
-  \item{NAME_EN}{The area English name}
-  \item{NAME_ES}{The area Spanish name}
-  \item{NAME_FR}{The area French name}
-  \item{ICCAT_AREA_INTERSECTION}{The extent of the intersection between the area and the ICCAT area}
+  \item{TYPE_CODE}{The area type code}
+  \item{CENTER_LAT}{The area center latitude}
+  \item{CENTER_LON}{The area center longitude}
   \item{GEOMETRY_WKT}{The geometry of the area}
 }
 }

@@ -2,17 +2,18 @@ library(iccat.dev.base)
 
 GRIDS_5x5_RAW_GEOMETRIES =
   tabular_query(
-    DB_GIS(), "
+    DB_GIS(server = "ATENEA\\SQL22"), "
       SELECT
         CODE,
+        TYPE_CODE,
         CENTER_LAT,
         CENTER_LON,
-      ([GEOMETRY].MakeValid()).STAsText() AS GEOMETRY_WKT
+      (GEOMETRY_CUT.MakeValid()).STAsText() AS GEOMETRY_WKT
       FROM
         [AREAS]
       WHERE
         CODE LIKE '6%' AND
-        ICCAT_AREA_INTERSECTION > 0
+        SURFACE_IN_ICCAT_AREA > 0
     "
     # The [GEOMETRY] column shall be included as last in the list of SELECTed columns to avoid an
     # issue (possibly due to a bug) that results in:
