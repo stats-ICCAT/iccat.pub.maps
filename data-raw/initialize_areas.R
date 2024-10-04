@@ -55,4 +55,3 @@ usethis::use_data(STOCK_AND_SAMPLING_AREAS_RAW_GEOMETRIES, overwrite = TRUE, com
 ATLANTIC_OCEAN_RAW_GEOMETRY = raw_geometries_for("ICCAT")
 
 usethis::use_data(ATLANTIC_OCEAN_RAW_GEOMETRY, overwrite = TRUE, compress = "gzip")
-

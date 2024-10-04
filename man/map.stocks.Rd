@@ -9,7 +9,9 @@ map.stocks(
   stock_codes = NULL,
   base_map = map.atlantic(),
   fill_areas = TRUE,
-  add_labels = TRUE
+  add_labels = TRUE,
+  crs = CRS_EQUIDISTANT,
+  background_plot_function = NULL
 )
 }
 \arguments{
@@ -22,6 +24,10 @@ map.stocks(
 \item{fill_areas}{TBD}
 
 \item{add_labels}{TBD}
+
+\item{crs}{TBD}
+
+\item{background_plot_function}{TBD}
 }
 \value{
 TBD

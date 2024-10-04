@@ -1,16 +1,6 @@
 # See: https://stackoverflow.com/questions/23252231/r-data-table-breaks-in-exported-functions
 .datatable.aware = TRUE
 
-geometries_for = function(raw_geometries) {
-  return(
-    st_as_sf(
-      raw_geometries,
-      crs = 4326,
-      wkt = "GEOMETRY_WKT"
-    )
-  )
-}
-
 #' TBD
 #'
 #' @param species_codes TBD
@@ -18,11 +8,15 @@ geometries_for = function(raw_geometries) {
 #' @param base_map TBD
 #' @param fill_areas TBD
 #' @param add_labels TBD
+#' @param crs TBD
+#' @param background_plot_function TBD
 #' @return TBD
 #' @export
 map.stocks = function(species_codes, stock_codes = NULL,
                       base_map = map.atlantic(),
-                      fill_areas = TRUE, add_labels = TRUE) {
+                      fill_areas = TRUE, add_labels = TRUE,
+                      crs = CRS_EQUIDISTANT,
+                      background_plot_function = NULL) {
 
   show_sampling_areas = !is.null(stock_codes) & length(stock_codes) > 0
 
@@ -51,12 +45,22 @@ map.stocks = function(species_codes, stock_codes = NULL,
 
   if(!is.null(stock_codes) & length(stock_codes) > 0) selected_stocks = stocks_for_species[STOCK_CODE %in% stock_codes]
 
-  stock_areas    = geometries_for(STOCK_AND_SAMPLING_AREAS_RAW_GEOMETRIES[CODE %in% unique(selected_stocks$STOCK_CODE)])
-  sampling_areas = geometries_for(STOCK_AND_SAMPLING_AREAS_RAW_GEOMETRIES[CODE %in% unique(selected_stocks$SAMPLING_AREA_CODE)])
+  stock_areas    = geometries_for(STOCK_AND_SAMPLING_AREAS_RAW_GEOMETRIES[CODE %in% unique(selected_stocks$STOCK_CODE)],
+                                  target_crs = crs)
+  sampling_areas = geometries_for(STOCK_AND_SAMPLING_AREAS_RAW_GEOMETRIES[CODE %in% unique(selected_stocks$SAMPLING_AREA_CODE)],
+                                  target_crs = crs)
 
   SA_colors = SA_colors[SAMPLING_AREA_CODE %in% selected_stocks$SAMPLING_AREA_CODE]
 
   map = base_map
+
+  if(!is.null(background_plot_function)) {
+    map = background_plot_function(map)
+
+    map = map +
+      new_scale_fill() +
+      new_scale_colour()
+  }
 
   if(show_sampling_areas) { # When showing sampling areas for a given stock
     if(fill_areas) map = map + geom_sf(data = sampling_areas, aes(fill = CODE, color = CODE), alpha = DEFAULT_AREA_FILL_ALPHA, linewidth = DEFAULT_BORDER_LINE_WIDTH) + scale_fill_manual(values = SA_colors$COLOR)
@@ -90,7 +94,17 @@ map.stocks = function(species_codes, stock_codes = NULL,
   if(fill_areas == FALSE) map = map + guides(fill = "none")
   else                    map = map + new_scale_fill()
 
+  # Needed to ensure that the base map is displayed...
+  coords =
+    coord_sf(
+      crs = crs,
+      default_crs = sf::st_crs(CRS_WGS84), # The world map uses the EPSG:4326 projection
+      label_axes = "--EN"
+    )
+
+  coords$default = TRUE
+
   return(
-    map
+    map + coords
   )
 }
