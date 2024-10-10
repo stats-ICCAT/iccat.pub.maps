@@ -1,7 +1,7 @@
 Package: iccat.pub.maps
 Type: Package
 Title: TBD
-Version: 0.1.0
+Version: 0.1.1
 Author: ICCAT Secretariat
 Maintainer: Fabio Fiorellato <fabio.fiorellato@iccat.int>
 Description: TBD
@@ -10,16 +10,16 @@ License: TBD
 Encoding: UTF-8
 LazyData: true
 Depends: 
-    iccat.pub.base,
-    data.table,
-    colorspace,
-    scales,
-    maps,
-    mapdata,
-    mapplots,
+    iccat.pub.aes,
+    iccat.pub.data,
     ggplot2,
     ggthemes,
     ggnewscale,
+    colorspace,
+    scales,
     sf,
+    maps,
+    mapdata,
+    mapplots,
     R (>= 2.10)
 RoxygenNote: 7.3.1
