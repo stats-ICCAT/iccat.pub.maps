@@ -15,7 +15,7 @@
 map.stocks = function(species_codes, stock_codes = NULL,
                       base_map = map.atlantic(),
                       fill_areas = TRUE, add_labels = TRUE,
-                      crs = CRS_EQUIDISTANT,
+                      crs = iccat.pub.maps::CRS_EQUIDISTANT,
                       background_plot_function = NULL) {
 
   show_sampling_areas = !is.null(stock_codes) & length(stock_codes) > 0
@@ -98,7 +98,7 @@ map.stocks = function(species_codes, stock_codes = NULL,
   coords =
     coord_sf(
       crs = crs,
-      default_crs = sf::st_crs(CRS_WGS84), # The world map uses the EPSG:4326 projection
+      default_crs = sf::st_crs(iccat.pub.maps::CRS_WGS84), # The world map uses the EPSG:4326 projection
       label_axes = "--EN"
     )
 
