@@ -10,7 +10,7 @@ map.stocks(
   base_map = map.atlantic(),
   fill_areas = TRUE,
   add_labels = TRUE,
-  crs = CRS_EQUIDISTANT,
+  crs = iccat.pub.maps::CRS_EQUIDISTANT,
   background_plot_function = NULL
 )
 }

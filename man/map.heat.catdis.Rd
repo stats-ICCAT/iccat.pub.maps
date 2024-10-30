@@ -5,7 +5,7 @@
 \title{TBD}
 \usage{
 map.heat.catdis(
-  base_map = map.atlantic(projection = iccat.pub.maps::CRS_EQUIDISTANT),
+  base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT),
   catdis_data,
   gears_to_keep = NULL,
   gear,

@@ -14,7 +14,7 @@
 #' @param crs TBD
 #' @return TBD
 #' @export
-map.pie.catdis.gear = function(base_map = map.atlantic(projection = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
+map.pie.catdis.gear = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")
 
   if(!is.null(gears_to_keep)) {
@@ -107,7 +107,7 @@ map.pie.catdis.gear = function(base_map = map.atlantic(projection = iccat.pub.ma
 #' @param crs TBD
 #' @return TBD
 #' @export
-map.pie.catdis.schooltype = function(base_map = map.atlantic(projection = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
+map.pie.catdis.schooltype = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")
 
   catdis_data[!SchoolType %in% c("FAD", "FSC"), SchoolType := "UNK"]
@@ -239,7 +239,7 @@ catdis_labels_for_breaks = function(breaks) {
 #' @param crs TBD
 #' @return TBD
 #' @export
-map.heat.catdis = function(base_map = map.atlantic(projection = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, gear, num_breaks = 5, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
+map.heat.catdis = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, gear, num_breaks = 5, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")
 
   if(!is.null(gears_to_keep)) {

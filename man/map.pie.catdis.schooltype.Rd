@@ -5,7 +5,7 @@
 \title{TBD}
 \usage{
 map.pie.catdis.schooltype(
-  base_map = map.atlantic(projection = iccat.pub.maps::CRS_EQUIDISTANT),
+  base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT),
   catdis_data,
   default_radius = pi,
   max_catch = NA,
