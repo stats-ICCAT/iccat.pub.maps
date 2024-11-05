@@ -2,7 +2,7 @@ library(iccat.dev.base)
 
 GRIDS_5x5_RAW_GEOMETRIES =
   tabular_query(
-    DB_GIS(server = "ATENEA\\SQL22"), "
+    DB_GIS(), "
       SELECT
         CODE,
         TYPE_CODE,

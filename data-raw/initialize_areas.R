@@ -1,6 +1,6 @@
 library(iccat.dev.base)
 
-raw_geometries_for = function(area_codes, connection = DB_GIS(server = "ATENEA\\SQL22")) {
+raw_geometries_for = function(area_codes, connection = DB_GIS()) {
   return(
     tabular_query(
       connection,
@@ -24,7 +24,7 @@ raw_geometries_for = function(area_codes, connection = DB_GIS(server = "ATENEA\\
 
 SPECIES_TO_AREAS_MAPPINGS =
   tabular_query(
-    DB_GIS(server = "ATENEA\\SQL22"), "
+    DB_GIS(), "
     SELECT
       S.SPECIES_CODE,
       SA.STOCK_CODE,
