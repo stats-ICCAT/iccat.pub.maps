@@ -92,21 +92,58 @@ For the examples to work, the following statement should be executed once per se
 library(iccat.pub.maps)
 ```
 
-### T1NC
+### *Dataless* Atlantic maps
 
-> To run these examples we assume that the `T1NC` object contains all T1NC data as retrieved using the `iccat.dev.data::t1nc` function.
+#### Default empty Atlantic map
+```
+map.atlamtic()
+```
+![image](https://github.com/user-attachments/assets/760c8a30-2e78-4939-be77-a615072b8577)
 
-#### Producing a T1NC data summary by species, fleet, and gear
+#### Default empty Atlantic map zoomed on the Mediterranean
 ```
-# T1NC = t1nc() # Requires access to the iccat.dev.data library
+map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
+```
+![image](https://github.com/user-attachments/assets/418d3848-0c36-4c0a-8f54-bc03566ce94d)
 
-T1NC_summary = t1nc.summarise(T1NC, by_species = TRUE, by_gear = TRUE, by_stock = FALSE, by_catch_type = FALSE)
+#### Default empty Atlantic map with all 5x5 ICCAT grids 
 ```
+GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
+
+map.atlantic(background_plot_function = function(map) { 
+  ggplot() +   
+    geom_sf(
+      GRIDS_5x5_SF,
+      mapping = aes(),
+      fill = "transparent",
+      color = "blue"
+    )
+})
 ```
-> View(T1NC_summary$grouped)
+
+#### Albacore tuna stocks map
 ```
-![image](https://github.com/user-attachments/assets/469dc26d-50f5-4077-b457-a880d2b1c722)
-#### Producing a T1NC data summary since 1994 (included) for Albacore tuna by stock and fleet only, including catch ranks (absolute and cumulative) for each stratum
+map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
+```
+![image](https://github.com/user-attachments/assets/12f497ab-103f-42e1-b895-c9f95d49e61d)
+
+#### Albacore tuna stocks and sampling areas map
+```
+map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"))
+```
+![image](https://github.com/user-attachments/assets/0e196449-0d9c-47a5-9946-c7d39846a9cc)
+
+#### Albacore tuna stocks and sampling areas map (contours only, no labels)
+```
+map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE, add_labels = FALSE)
+```
+![image](https://github.com/user-attachments/assets/66be1f35-6893-4693-afc1-16ae5cc3ef36)
+
+### CATDIS maps
+
+> To run these examples we assume that the CATDIS object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
+
+#### Albacore CATDIS data pie map by gear (1994-2023)
 ```
 # T1NC = t1nc() # Requires access to the iccat.dev.data library
 
