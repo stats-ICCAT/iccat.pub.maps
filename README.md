@@ -43,10 +43,11 @@ E.g.,:
 + `maps`
 + `mapdata`
 + `mapplotsr`
++ `scatterpie`
 
 ### Installation
 ```
-install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", "sf", "maps", "mapdata", "mapplots"))
+install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", "sf", "maps", "mapdata", "mapplots", "scatterpie"))
 ```
 
 ## Internal dependencies <a name="internal_deps"></a>
@@ -157,16 +158,12 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 
 ### CATDIS maps
 
-> To run these examples we assume that the CATDIS object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
+> To run these examples we assume that the `CATDIS_current` object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
 
 #### Albacore CATDIS data pie map by gear (1994-2023)
 ```
-# T1NC = t1nc() # Requires access to the iccat.dev.data library
+# CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
-T1NC_summary_ALB = t1nc.summarise(T1NC[Species == "ALB"], year_min = 1994, by_species = FALSE, by_gear = FALSE, by_stock = TRUE, by_catch_type = FALSE, rank = TRUE)
-```
-```
-> View(T1NC_summary_ALB$grouped)
 ```
 ![image](https://github.com/user-attachments/assets/511fa695-9407-4fed-809d-d81fddd03ae0)
 
