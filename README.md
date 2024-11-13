@@ -106,7 +106,22 @@ map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
 ```
 ![image](https://github.com/user-attachments/assets/418d3848-0c36-4c0a-8f54-bc03566ce94d)
 
-#### Default empty Atlantic map with all 5x5 ICCAT grids 
+#### Default empty Atlantic map showing the ICCAT area of competence 
+```
+ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
+
+map.atlantic(background_plot_function = function(map) { 
+  ggplot() +   
+    geom_sf(
+      ATLANTIC_OCEAN_SF,
+      mapping = aes(),
+      fill = "azure"
+    )
+})
+```
+![image](https://github.com/user-attachments/assets/48d8fc3d-64fc-453e-9d9f-20aad0640947)
+
+#### Default empty Atlantic map showing all 5x5 grids within the ICCAT area of competence 
 ```
 GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
 
@@ -120,6 +135,7 @@ map.atlantic(background_plot_function = function(map) {
     )
 })
 ```
+![image](https://github.com/user-attachments/assets/6ee08861-0b4e-435b-b530-249f75445135)
 
 #### Albacore tuna stocks map
 ```
