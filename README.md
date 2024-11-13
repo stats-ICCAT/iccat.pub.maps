@@ -35,14 +35,14 @@ E.g.,:
 > See each exported item for its description and structure
 
 ## External dependencies (CRAN) <a name="external_deps"></a>
-+ `ggplot2'
-+ 'ggnewscale'
-+ 'colorspace'
-+ 'scales'
-+ 'sf'
-+ 'maps'
-+ 'mapdata'
-+ 'mapplotsr`
++ `ggplot2`
++ `ggnewscale`
++ `colorspace`
++ `scales`
++ `sf`
++ `maps`
++ `mapdata`
++ `mapplotsr`
 
 ### Installation
 ```
@@ -86,7 +86,7 @@ or by executing the following statement:
 
 ### Loading the library
 
-For the examples to work, the following statement should be executed only once per session:
+For the examples to work, the following statement should be executed once per session:
 
 ```
 library(iccat.pub.maps)
