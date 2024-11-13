@@ -158,40 +158,42 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 
 > To run these examples we assume that the `CATDIS_current` object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
 
-#### Albacore CATDIS data pie map by gear (1994-2023)
+#### Albacore CATDIS data piemap by gear (1993-2022) showing also ICCAT area borders
 ```
 # CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
-```
-![image](https://github.com/user-attachments/assets/511fa695-9407-4fed-809d-d81fddd03ae0)
+ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
-### T1 + T2 SCRS catalogue
+ICCAT_AREA =
+  map.atlantic() +
+  geom_sf(
+    ATLANTIC_OCEAN_SF,
+    mapping = aes(),
+    fill = "transparent",
+    color = "darkgrey"
+  ) + 
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
 
-> To run these examples we assume that the `FR` and `CA` objects contain fishery ranks and base catalogue data as retrieved using the `iccat.dev.data::catalogue.fn_getT1NC_fisheryRanks` and `iccat.dev.data::catalogue.fn_genT1NC_CatalSCRS` functions, respectively.
+map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993])
+```
+![image](https://github.com/user-attachments/assets/1c949340-6919-4165-9642-f99e5518f615)
 
-#### Producing the T1 + T2 SCRS catalogue for all species from 1950 onwards
+#### Albacore CATDIS data piemap by gear (1993-2022) limited to `LL` and `BB`
 ```
-# FR = catalogue.fn_getT1NC_fisheryRanks() # Requires access to the iccat.dev.data library
-# CA = catalogue.fn_genT1NC_CatalSCRS()    # Requires access to the iccat.dev.data library
+# CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
-CAT = catalogue.compile(FR, CA, year_from = 1950) 
+map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993], gears_to_keep = c("LL", "BB"))
 ```
-```
-> View(CAT)
-```
-![image](https://github.com/user-attachments/assets/542894bf-b258-44a6-807a-aec510b37afc)
+![image](https://github.com/user-attachments/assets/530f81a6-6843-49ff-91d6-b8b94f79749f)
 
-#### Producing the T1 + T2 SCRS catalogue for all species from 1994 onwards
+#### Tropical tunas CATDIS data piemap by school type (1993-2022)
 ```
-# FR = catalogue.fn_getT1NC_fisheryRanks(species_codes = "ALB") # Requires access to the iccat.dev.data library
-# CA = catalogue.fn_genT1NC_CatalSCRS(species_codes = "ALB")    # Requires access to the iccat.dev.data library
+# CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
-CAT_ALB_1994 = catalogue.compile(FR, CA, year_from = 1994) 
+map.pie.catdis.schooltype(catdis_data = CATDIS_current[SpeciesCode %in% c("BET", "SKJ", "YFT") & YearC >= 1993])
 ```
-```
-> View(CAT_ALB_1994)
-```
-![image](https://github.com/user-attachments/assets/b798dc27-25e1-47dc-a5d9-91b65e38c67f)
+![image](https://github.com/user-attachments/assets/de9cc4a0-8e5c-47d3-a5f9-b0e6a24da1bc)
+
 
 ## Future extensions
 + [ ] ensure that the explicit external dependency from `dplyr` is really needed
