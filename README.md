@@ -184,7 +184,7 @@ map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >=
 
 map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993], gears_to_keep = c("LL", "BB"))
 ```
-![image](https://github.com/user-attachments/assets/530f81a6-6843-49ff-91d6-b8b94f79749f)
+![image](https://github.com/user-attachments/assets/e802ec85-8f41-4f2a-9eed-73f04df5f230)
 
 #### Tropical tunas CATDIS data piemap by school type (1993-2022)
 ```
