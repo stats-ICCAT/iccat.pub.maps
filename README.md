@@ -92,8 +92,6 @@ For the examples to work, the following statement should be executed once per se
 library(iccat.pub.maps)
 ```
 
-> The R session doesn't necessarily need to run on a machine that has direct access to the ICCAT database servers.
-
 ### T1NC
 
 > To run these examples we assume that the `T1NC` object contains all T1NC data as retrieved using the `iccat.dev.data::t1nc` function.
