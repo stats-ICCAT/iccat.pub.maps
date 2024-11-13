@@ -1,6 +1,6 @@
 # ICCAT `maps` `public` library
 
-A set of reference data and functions to produce geospatial maps of the Atlantic and Mediterranean area, with the possibility of adding piemap and heatmap plots for CATDIS data.  
+A set of reference data and functions to produce geospatial maps of the Atlantic and Mediterranean area, with the possibility of producing pie charts and heatmap plots for CATDIS data.  
 
 This library is meant for public usage, and for this reason it does not have dependencies from the (development) ICCAT libraries that provide access to the databases.
 Nevertheless, the script (not exported with the library) that updates the reference data tables comes indeed with a direct dependency from the [iccat.dev.base](https://github.com/stats-ICCAT/iccat.dev.base) library. 
