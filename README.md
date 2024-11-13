@@ -17,7 +17,7 @@ Nevertheless, the script (not exported with the library) that updates the refere
   + Pie chart maps of catch data categorised by school type
   + Heatmaps of catch data magnitude by gear
     
-## Reference data artifacts exported by the library
+## Reference data artifacts exported by the library <a name="reference_data"></a>
 
 Each of the following artifacts (hereby referenced by their object name) represents the content (as an R `data.table`) of a reference data table included in one of the ICCAT databases (generally, `DATABASE_T1`) with standardized column names.
 
@@ -35,29 +35,37 @@ E.g.,:
 > See each exported item for its description and structure
 
 ## External dependencies (CRAN) <a name="external_deps"></a>
-+ `data.table`
-+ `dplyr`
++ `ggplot2'
++ 'ggnewscale'
++ 'colorspace'
++ 'scales'
++ 'sf'
++ 'maps'
++ 'mapdata'
++ 'mapplotsr`
 
 ### Installation
 ```
-install.packages(c("data.table", "dplyr", "stringr"))
+install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", "sf", "maps", "mapdata", "mapplots"))
 ```
 
 ## Internal dependencies <a name="internal_deps"></a>
++ [iccat.pub.data](https://github.com/stats-ICCAT/iccat.pub.data)
++ [iccat.pub.aes](https://github.com/stats-ICCAT/iccat.pub.aes)
 + [iccat.dev.data](https://github.com/stats-ICCAT/iccat.dev.data) [`OPTIONAL`]
 
-This dependency is only required if we need to update the reference data (but not to use the library by itself). In this case, please ensure to follow the steps for the installation of all internal / external requirements for the `iccat.dev.data` library as available [here](https://github.com/stats-ICCAT/iccat.dev.data/?tab=readme-ov-file#external-dependencies-cran-).
+The optional dependency is only required if we need to update the reference data (but not to use the library by itself). In this case, please ensure to follow the steps for the installation of all internal / external requirements for the `iccat.dev.data` library as available [here](https://github.com/stats-ICCAT/iccat.dev.data/?tab=readme-ov-file#external-dependencies-cran-).
 
 ### Installation (straight from GitHub)
 ```
 library(devtools)
 
-install_github("stats-ICCAT/iccat.pub.data")
+install_github("stats-ICCAT/iccat.pub.maps")
 ```
 
 # Updating the reference data
 
-This repository also includes a script ([`data-raw\initialize_reference_data.R`](https://github.com/stats-ICCAT/iccat.pub.data/blob/main/data-raw/initialize_reference_data.R) which takes care - when explicitly executed - of extracting reference data from the standard ICCAT databases and update the exported [reference data objects]().
+This repository also includes a script ([`data-raw\initialize_reference_data.R`](https://github.com/stats-ICCAT/iccat.pub.maps/blob/main/data-raw/initialize_reference_data.R) which takes care - when explicitly executed - of extracting reference data from the standard ICCAT databases and update the exported [reference data objects](#reference_data).
 The script is **not** exported with the library, requires loading the `iccat.dev.base` library, and can be run only by users that have read access to the ICCAT databases.
 
 This script needs to be extended every time a new reference data is added to the list, and the [`R\data.R`](https://github.com/stats-ICCAT/iccat.pub.data/blob/main/R/data.R) script should then updated accordingly, to include the new object to be exported, and describe its content.
