@@ -81,7 +81,7 @@ or by executing the following statement:
 For the examples to work, the following statement should be executed only once per session:
 
 ```
-library(iccat.pub.data)
+library(iccat.pub.maps)
 ```
 
 > The R session doesn't necessarily need to run on a machine that has direct access to the ICCAT database servers.
