@@ -111,14 +111,13 @@ map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
 ```
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
-map.atlantic(background_plot_function = function(map) { 
-  ggplot() +   
-    geom_sf(
-      ATLANTIC_OCEAN_SF,
-      mapping = aes(),
-      fill = "azure"
-    )
-})
+map.atlantic() +
+  geom_sf(
+    ATLANTIC_OCEAN_SF,
+    mapping = aes(),
+    fill = "azure"
+  ) +
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
 ```
 ![image](https://github.com/user-attachments/assets/48d8fc3d-64fc-453e-9d9f-20aad0640947)
 
@@ -126,15 +125,14 @@ map.atlantic(background_plot_function = function(map) {
 ```
 GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
 
-map.atlantic(background_plot_function = function(map) { 
-  ggplot() +   
-    geom_sf(
-      GRIDS_5x5_SF,
-      mapping = aes(),
-      fill = "transparent",
-      color = "blue"
-    )
-})
+map.atlantic() +
+  geom_sf(
+    GRIDS_5x5_SF,
+    mapping = aes(),
+    fill = "transparent",
+    color = "blue"
+  ) +
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
 ```
 ![image](https://github.com/user-attachments/assets/6ee08861-0b4e-435b-b530-249f75445135)
 
