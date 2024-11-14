@@ -138,7 +138,7 @@ map.atlantic() +           # Initialises the base map
 
 #### Albacore tuna stocks map
 ```
-map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
+map.stocks("ALB")
 ```
 ![image](https://github.com/user-attachments/assets/12f497ab-103f-42e1-b895-c9f95d49e61d)
 
