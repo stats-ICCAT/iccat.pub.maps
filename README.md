@@ -111,13 +111,13 @@ map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
 ```
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
-map.atlantic() +
-  geom_sf(
-    ATLANTIC_OCEAN_SF,
-    mapping = aes(),
-    fill = "azure"
+map.atlantic() +       # Initialises the base map
+  geom_sf(        
+    ATLANTIC_OCEAN_SF, # Adds the ICCAT convention area simple feature
+    mapping = aes(),   # with no data-specific aesthetics
+    fill = "azure"     # and a azure fill color
   ) +
-  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 ```
 ![image](https://github.com/user-attachments/assets/48d8fc3d-64fc-453e-9d9f-20aad0640947)
 
@@ -125,12 +125,12 @@ map.atlantic() +
 ```
 GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
 
-map.atlantic() +           # Initializes the base map
+map.atlantic() +           # Initialises the base map
   geom_sf(
     GRIDS_5x5_SF,          # Adds the 5x5 grids simple features
     mapping = aes(),       # with no data-specific aesthetics
-    fill = "transparent",  # a transparent fill
-    color = "blue"         # and a blue outline
+    fill = "transparent",  # a transparent fill color
+    color = "blue"         # and a blue outline color
   ) +
   map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 ```
@@ -165,12 +165,12 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
 ICCAT_AREA =
-  map.atlantic() +           # Initializes the base map
+  map.atlantic() +        # Initialises the base map
   geom_sf(
-    ATLANTIC_OCEAN_SF,       # Adds the ICCAT competence area simple feature
-    mapping = aes(),         # with no data-specific aesthetics
-    fill = "transparent",    # a transparent fill
-    color = "darkgrey"       # and a dark grey outline
+    ATLANTIC_OCEAN_SF,    # Adds the ICCAT competence area simple feature
+    mapping = aes(),      # with no data-specific aesthetics
+    fill = "transparent", # a transparent fill color
+    color = "darkgrey"    # and a dark grey outline color
   ) + 
   map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 
@@ -203,8 +203,8 @@ ICCAT_AREA =
   geom_sf(
     ATLANTIC_OCEAN_SF,       # Adds the ICCAT competence area simple feature
     mapping = aes(),         # with no data-specific aesthetics
-    fill = "transparent",    # a transparent fill
-    color = "darkgrey"       # and a dark grey outline
+    fill = "transparent",    # a transparent fill color
+    color = "darkgrey"       # and a dark grey outline color
   ) + 
   map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 
