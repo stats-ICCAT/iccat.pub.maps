@@ -125,14 +125,14 @@ map.atlantic() +
 ```
 GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
 
-map.atlantic() +
+map.atlantic() +           # Initializes the base map
   geom_sf(
-    GRIDS_5x5_SF,
-    mapping = aes(),
-    fill = "transparent",
-    color = "blue"
+    GRIDS_5x5_SF,          # Adds the 5x5 grids simple features
+    mapping = aes(),       # with no data-specific aesthetics
+    fill = "transparent",  # a transparent fill
+    color = "blue"         # and a blue outline
   ) +
-  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 ```
 ![image](https://github.com/user-attachments/assets/6ee08861-0b4e-435b-b530-249f75445135)
 
@@ -165,14 +165,14 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
 ICCAT_AREA =
-  map.atlantic() +
+  map.atlantic() +           # Initializes the base map
   geom_sf(
-    ATLANTIC_OCEAN_SF,
-    mapping = aes(),
-    fill = "transparent",
-    color = "darkgrey"
+    ATLANTIC_OCEAN_SF,       # Adds the ICCAT competence area simple feature
+    mapping = aes(),         # with no data-specific aesthetics
+    fill = "transparent",    # a transparent fill
+    color = "darkgrey"       # and a dark grey outline
   ) + 
-  map.coordinates_sf(target_crs = CRS_EQUIDISTANT)
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 
 map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993])
 ```
