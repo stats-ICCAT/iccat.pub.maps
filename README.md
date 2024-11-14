@@ -8,14 +8,14 @@ Nevertheless, the script (not exported with the library) that updates the refere
 ## Artifacts that can be produced using the map-specific functions provided by the library
 
 1) Default *dataless* Atlantic maps
-  + Base maps
-  + [Species' stock maps](#albacore-tuna-stocks-map)
-  + Species' sampling area maps
+  + [Base maps](#default-empty-atlantic-map)
+  + Species' [stock maps](#albacore-tuna-stocks-map)
+  + Species' [sampling area maps](albacore-tuna-stocks-and-sampling-areas-map)
      
 2) CATDIS maps
-  + Pie chart maps of catch data categorised by gear
-  + Pie chart maps of catch data categorised by school type
-  + Heatmaps of catch data magnitude by gear
+  + Pie chart maps of [catch data categorised by gear](#albacore-catdis-data-piemap-by-gear-1993-2022-with-iccat-convention-area-boundaries)
+  + Pie chart maps of [catch data categorised by school type]()
+  + Heatmaps of [catch data magnitude](#albacore-baitboat-catdis-data-heatmap-1993-2022-with-iccat-convention-area-boundaries)
     
 ## Reference data artifacts exported by the library <a name="reference_data"></a>
 
