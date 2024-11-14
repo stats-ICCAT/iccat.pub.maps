@@ -1,18 +1,18 @@
 # See: https://stackoverflow.com/questions/23252231/r-data-table-breaks-in-exported-functions
 .datatable.aware = TRUE
 
-#' TBD
+#' Produces a pie map chart of CATDIS catch data using gears as categories
 #'
-#' @param base_map TBD
-#' @param catdis_data TBD
-#' @param gears_to_keep TBD
-#' @param default_radius TBD
-#' @param max_catch TBD
-#' @param center_pies TBD
-#' @param legend.x TBD
-#' @param legend.y TBD
-#' @param crs TBD
-#' @return TBD
+#' @param base_map the base map to use
+#' @param catdis_data the CATDIS data
+#' @param gears_to_keep a vector of gears to keep in the final map. All gears with codes other than those provided will collapse in a generic _Other gears_ category
+#' @param default_radius the default radius of each pie
+#' @param max_catch the maximum catch value to use as a reference when scaling up / down each single pie
+#' @param center_pies to place the pie center in the grid centroid, or in the grid exact center (regardless of the available ocean area within the grid)
+#' @param legend.x the x position of the legend
+#' @param legend.y the y position of the legend
+#' @param crs the Coordinate Reference System to use
+#' @return a CATDIS piemap showing catches by gear and 5x5 grid
 #' @export
 map.pie.catdis.gear = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")
@@ -95,17 +95,17 @@ map.pie.catdis.gear = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS
   )
 }
 
-#' TBD
+#' Produces a pie map chart of CATDIS catch data using school types as categories
 #'
-#' @param base_map TBD
-#' @param catdis_data TBD
-#' @param default_radius TBD
-#' @param max_catch TBD
-#' @param center_pies TBD
-#' @param legend.x TBD
-#' @param legend.y TBD
-#' @param crs TBD
-#' @return TBD
+#' @param base_map the base map to use
+#' @param catdis_data the CATDIS data
+#' @param default_radius the default radius of each pie
+#' @param max_catch the maximum catch value to use as a reference when scaling up / down each single pie
+#' @param center_pies to place the pie center in the grid centroid, or in the grid exact center (regardless of the available ocean area within the grid)
+#' @param legend.x the x position of the legend
+#' @param legend.y the y position of the legend
+#' @param crs the Coordinate Reference System to use
+#' @return a CATDIS pie map showing catches by gear and 5x5 grid
 #' @export
 map.pie.catdis.schooltype = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, default_radius = pi, max_catch = NA, center_pies = TRUE, legend.x = -90, legend.y = -25, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")
@@ -229,15 +229,15 @@ catdis_labels_for_breaks = function(breaks) {
   return(labels)
 }
 
-#' TBD
+#' Produces a heatmap chart of CATDIS catch data by 5x5 grid
 #'
-#' @param base_map TBD
-#' @param catdis_data TBD
-#' @param gears_to_keep TBD
-#' @param gear TBD
-#' @param num_breaks TBD
-#' @param crs TBD
-#' @return TBD
+#' @param base_map the base map to use
+#' @param catdis_data the CATDIS data
+#' @param gears_to_keep a vector of gears to keep in the final map. All gears with codes other than those provided will collapse in a generic _Other gears_ category
+#' @param gear the gear whose CATDIS catch data should be used to produce the heatmap
+#' @param num_breaks the number of breaks for the heatmap catch scale
+#' @param crs the Coordinate Reference System to use
+#' @return a CATDIS heatmap showing catches of a given gear by magnitude and 5x5 grid
 #' @export
 map.heat.catdis = function(base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT), catdis_data, gears_to_keep = NULL, gear, num_breaks = 5, crs = iccat.pub.maps::CRS_EQUIDISTANT) {
   if(is.null(catdis_data) | nrow(catdis_data) == 0) stop("No catdis data provided!")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_stocks.R
 \name{map.stocks}
 \alias{map.stocks}
-\title{TBD}
+\title{Produces a map of a given species' stocks / sampling areas.}
 \usage{
 map.stocks(
   species_codes,
@@ -15,23 +15,24 @@ map.stocks(
 )
 }
 \arguments{
-\item{species_codes}{TBD}
+\item{species_codes}{a list of species codes}
 
-\item{stock_codes}{TBD}
+\item{stock_codes}{a list of stock codes}
 
-\item{base_map}{TBD}
+\item{base_map}{the base map to use}
 
-\item{fill_areas}{TBD}
+\item{fill_areas}{whether or not stocks / sampling areas should be filled with their default color}
 
-\item{add_labels}{TBD}
+\item{add_labels}{whether or labels should be added to stocks / sampling areas}
 
-\item{crs}{TBD}
+\item{crs}{the Coordinate Reference System to use}
 
-\item{background_plot_function}{TBD}
+\item{background_plot_function}{an optional function used to initialize the background layer of the map}
 }
 \value{
-TBD
+a map of the given species' stocks and / or sampling areas, depending on the provided parameters
 }
 \description{
-TBD
+If only species codes are provided, the result will be a map of all stock areas for the selected species.
+If species codes *and* stock codes are provided, the result will be a map of the selected stock areas and of all sampling areas within them (for the selected species)
 }

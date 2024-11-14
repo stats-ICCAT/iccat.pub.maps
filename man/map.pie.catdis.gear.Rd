@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_catdis.R
 \name{map.pie.catdis.gear}
 \alias{map.pie.catdis.gear}
-\title{TBD}
+\title{Produces a pie map chart of CATDIS catch data using gears as categories}
 \usage{
 map.pie.catdis.gear(
   base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT),
@@ -17,27 +17,27 @@ map.pie.catdis.gear(
 )
 }
 \arguments{
-\item{base_map}{TBD}
+\item{base_map}{the base map to use}
 
-\item{catdis_data}{TBD}
+\item{catdis_data}{the CATDIS data}
 
-\item{gears_to_keep}{TBD}
+\item{gears_to_keep}{a vector of gears to keep in the final map. All gears with codes other than those provided will collapse in a generic _Other gears_ category}
 
-\item{default_radius}{TBD}
+\item{default_radius}{the default radius of each pie}
 
-\item{max_catch}{TBD}
+\item{max_catch}{the maximum catch value to use as a reference when scaling up / down each single pie}
 
-\item{center_pies}{TBD}
+\item{center_pies}{to place the pie center in the grid centroid, or in the grid exact center (regardless of the available ocean area within the grid)}
 
-\item{legend.x}{TBD}
+\item{legend.x}{the x position of the legend}
 
-\item{legend.y}{TBD}
+\item{legend.y}{the y position of the legend}
 
-\item{crs}{TBD}
+\item{crs}{the Coordinate Reference System to use}
 }
 \value{
-TBD
+a CATDIS piemap showing catches by gear and 5x5 grid
 }
 \description{
-TBD
+Produces a pie map chart of CATDIS catch data using gears as categories
 }

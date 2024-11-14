@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_base.R
 \name{map.atlantic}
 \alias{map.atlantic}
-\title{TBD}
+\title{Provides a base empty map for the Atlantic and Mediterranean areas}
 \usage{
 map.atlantic(
   xlim = DEFAULT_XLIM,
@@ -19,31 +19,31 @@ map.atlantic(
 )
 }
 \arguments{
-\item{xlim}{TBD}
+\item{xlim}{a vector specifying the range (min - max) of longitudes to include in the map}
 
-\item{x_breaks_every}{TBD}
+\item{x_breaks_every}{the distance between two consecutive breaks on the X axis}
 
-\item{ylim}{TBD}
+\item{ylim}{a vector specifying the range (min - max) of latitudes to include in the map}
 
-\item{y_breaks_every}{TBD}
+\item{y_breaks_every}{the distance between two consecutive breaks on the X axis}
 
-\item{axis_font_size}{TBD}
+\item{axis_font_size}{the axis font size}
 
-\item{fill_color}{TBD}
+\item{fill_color}{the color used to fill the land areas on the map}
 
-\item{border_color}{TBD}
+\item{border_color}{the color used for the border of the land areas}
 
-\item{border_line_width}{TBD}
+\item{border_line_width}{the line width for the border of the land areas}
 
-\item{force_show_all_atlantic}{TBD}
+\item{force_show_all_atlantic}{to ensure that the entire Atlantic ocean / ICCAT area is always displayed in full on the map}
 
-\item{crs}{TBD}
+\item{crs}{the target Coordinate Reference System used to plot the map. Defaults to \code{\link{CRS_EQUIDISTANT}}}
 
-\item{background_plot_function}{TBD}
+\item{background_plot_function}{an optional function used to initialize the background layer of the map}
 }
 \value{
-TBD
+a base empty map for the Atlantic and Mediterranean areas
 }
 \description{
-TBD
+Provides a base empty map for the Atlantic and Mediterranean areas
 }

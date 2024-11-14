@@ -2,7 +2,8 @@
 % Please edit documentation in R/map_constants.R
 \name{geometries_for}
 \alias{geometries_for}
-\title{TBD}
+\title{Converts into simple features a set of raw geometries as described (in _Well-Known-Text_ format, i.e., _WKT_) by their \code{GEOMETRY_WKT} column).
+If required performs a coordinate reference system conversion before returning the simple features.}
 \usage{
 geometries_for(
   raw_geometries,
@@ -11,15 +12,16 @@ geometries_for(
 )
 }
 \arguments{
-\item{raw_geometries}{TBD}
+\item{raw_geometries}{a set of raw geometries with a \code{GEOMETRY_WKT} column storing the geometry definition in WKT format}
 
-\item{source_crs}{TBD}
+\item{source_crs}{a source CRS (defaults to \code{\link{CRS_WGS84}})}
 
-\item{target_crs}{TBD}
+\item{target_crs}{a target CRS (defaults to \code{\link{CRS_EQUIDISTANT}})}
 }
 \value{
-TBD
+a set of Simple Features built from the original raw geometries converted in the target CRS
 }
 \description{
-TBD
+Converts into simple features a set of raw geometries as described (in _Well-Known-Text_ format, i.e., _WKT_) by their \code{GEOMETRY_WKT} column).
+If required performs a coordinate reference system conversion before returning the simple features.
 }

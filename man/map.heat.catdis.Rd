@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_catdis.R
 \name{map.heat.catdis}
 \alias{map.heat.catdis}
-\title{TBD}
+\title{Produces a heatmap chart of CATDIS catch data by 5x5 grid}
 \usage{
 map.heat.catdis(
   base_map = map.atlantic(crs = iccat.pub.maps::CRS_EQUIDISTANT),
@@ -14,21 +14,21 @@ map.heat.catdis(
 )
 }
 \arguments{
-\item{base_map}{TBD}
+\item{base_map}{the base map to use}
 
-\item{catdis_data}{TBD}
+\item{catdis_data}{the CATDIS data}
 
-\item{gears_to_keep}{TBD}
+\item{gears_to_keep}{a vector of gears to keep in the final map. All gears with codes other than those provided will collapse in a generic _Other gears_ category}
 
-\item{gear}{TBD}
+\item{gear}{the gear whose CATDIS catch data should be used to produce the heatmap}
 
-\item{num_breaks}{TBD}
+\item{num_breaks}{the number of breaks for the heatmap catch scale}
 
-\item{crs}{TBD}
+\item{crs}{the Coordinate Reference System to use}
 }
 \value{
-TBD
+a CATDIS heatmap showing catches of a given gear by magnitude and 5x5 grid
 }
 \description{
-TBD
+Produces a heatmap chart of CATDIS catch data by 5x5 grid
 }

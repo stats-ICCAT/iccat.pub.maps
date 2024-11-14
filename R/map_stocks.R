@@ -1,16 +1,19 @@
 # See: https://stackoverflow.com/questions/23252231/r-data-table-breaks-in-exported-functions
 .datatable.aware = TRUE
 
-#' TBD
+#' Produces a map of a given species' stocks / sampling areas.
 #'
-#' @param species_codes TBD
-#' @param stock_codes TBD
-#' @param base_map TBD
-#' @param fill_areas TBD
-#' @param add_labels TBD
-#' @param crs TBD
-#' @param background_plot_function TBD
-#' @return TBD
+#' If only species codes are provided, the result will be a map of all stock areas for the selected species.
+#' If species codes *and* stock codes are provided, the result will be a map of the selected stock areas and of all sampling areas within them (for the selected species)
+#'
+#' @param species_codes a list of species codes
+#' @param stock_codes a list of stock codes
+#' @param base_map the base map to use
+#' @param fill_areas whether or not stocks / sampling areas should be filled with their default color
+#' @param add_labels whether or labels should be added to stocks / sampling areas
+#' @param crs the Coordinate Reference System to use
+#' @param background_plot_function an optional function used to initialize the background layer of the map
+#' @return a map of the given species' stocks and / or sampling areas, depending on the provided parameters
 #' @export
 map.stocks = function(species_codes, stock_codes = NULL,
                       base_map = map.atlantic(),
