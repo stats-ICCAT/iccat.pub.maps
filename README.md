@@ -9,7 +9,7 @@ Nevertheless, the script (not exported with the library) that updates the refere
 
 1) Default *dataless* Atlantic maps
   + Base maps
-  + Species' stock maps
+  + [Species' stock maps](#albacore-tuna-stocks-map)
   + Species' sampling area maps
      
 2) CATDIS maps
