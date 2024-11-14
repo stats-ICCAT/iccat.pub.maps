@@ -213,5 +213,5 @@ map.heat.catdis(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 199
 ![image](https://github.com/user-attachments/assets/2e3fa54e-6766-434a-92e2-7d21fcf96aba)
 
 ## Future extensions
-+ [ ] improve the way in which additional `geom_sf` layers are included the map outputs
++ [ ] improve the way in which additional `geom_sf` layers are included in the map outputs
 + [ ] standardize function signatures' for CATDIS piemaps and heatmaps  
