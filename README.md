@@ -158,7 +158,7 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 
 > To run these examples we assume that the `CATDIS_current` object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
 
-#### Albacore CATDIS data piemap by gear (1993-2022) showing also ICCAT area borders
+#### Albacore CATDIS data piemap by gear (1993-2022) with ICCAT convention area boundaries
 ```
 # CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
@@ -174,7 +174,7 @@ ICCAT_AREA =
   ) + 
   map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
 
-map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993])
+map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993], base_map = ICCAT_AREA)
 ```
 ![image](https://github.com/user-attachments/assets/1c949340-6919-4165-9642-f99e5518f615)
 
@@ -194,7 +194,24 @@ map.pie.catdis.schooltype(catdis_data = CATDIS_current[SpeciesCode %in% c("BET",
 ```
 ![image](https://github.com/user-attachments/assets/de9cc4a0-8e5c-47d3-a5f9-b0e6a24da1bc)
 
+#### Albacore baitboat CATDIS data heatmap (1993-2022) with ICCAT convention area boundaries
+```
+ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
+
+ICCAT_AREA =
+  map.atlantic() +           # Initializes the base map
+  geom_sf(
+    ATLANTIC_OCEAN_SF,       # Adds the ICCAT competence area simple feature
+    mapping = aes(),         # with no data-specific aesthetics
+    fill = "transparent",    # a transparent fill
+    color = "darkgrey"       # and a dark grey outline
+  ) + 
+  map.coordinates_sf(target_crs = CRS_EQUIDISTANT) # Forces the coordinate system to CRS to ensure all layers are displayed
+
+map.heat.catdis(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993], gear = "BB", base_map = ICCAT_AREA)
+```
+![image](https://github.com/user-attachments/assets/2e3fa54e-6766-434a-92e2-7d21fcf96aba)
 
 ## Future extensions
-+ [ ] ensure that the explicit external dependency from `dplyr` is really needed
-+ [ ] change the `t1nc.summarise` function to explicitly include / exclude flag data from the stratification (now it's always included)
++ [ ] improve the way in which additional `geom_sf` layers are included the map outputs
++ [ ] standardize function signatures' for CATDIS piemaps and heatmaps  
