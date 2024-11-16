@@ -46,7 +46,7 @@ E.g.,:
 + `scatterpie`
 
 ### Installation
-```
+```R
 install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", "sf", "maps", "mapdata", "mapplots", "scatterpie"))
 ```
 
@@ -58,7 +58,7 @@ install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", 
 The optional dependency is only required if we need to update the reference data. In this case, please ensure to follow the steps for the installation of all internal / external requirements for the `iccat.dev.data` library as available [here](https://github.com/stats-ICCAT/iccat.dev.data/?tab=readme-ov-file#external-dependencies-cran-).
 
 ### Installation (straight from GitHub)
-```
+```R
 library(devtools)
 
 install_github("stats-ICCAT/iccat.pub.maps")
@@ -89,26 +89,26 @@ or by executing the following statement:
 
 For the examples to work, the following statement should be executed once per session:
 
-```
+```R
 library(iccat.pub.maps)
 ```
 
 ### *Dataless* Atlantic maps
 
 #### Default empty Atlantic map
-```
+```R
 map.atlamtic()
 ```
 ![image](https://github.com/user-attachments/assets/760c8a30-2e78-4939-be77-a615072b8577)
 
 #### Default empty Atlantic map zoomed on the Mediterranean
-```
+```R
 map.atlantic(xlim = c(-5, 40), ylim = c(25, 50))
 ```
 ![image](https://github.com/user-attachments/assets/418d3848-0c36-4c0a-8f54-bc03566ce94d)
 
 #### Default empty Atlantic map showing the ICCAT area of competence 
-```
+```R
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
 map.atlantic() +       # Initialises the base map
@@ -122,7 +122,7 @@ map.atlantic() +       # Initialises the base map
 ![image](https://github.com/user-attachments/assets/48d8fc3d-64fc-453e-9d9f-20aad0640947)
 
 #### Default empty Atlantic map showing all 5x5 grids within the ICCAT area of competence 
-```
+```R
 GRIDS_5x5_SF = geometries_for(GRIDS_5x5_RAW_GEOMETRIES, target_crs = CRS_EQUIDISTANT)
 
 map.atlantic() +           # Initialises the base map
@@ -137,19 +137,19 @@ map.atlantic() +           # Initialises the base map
 ![image](https://github.com/user-attachments/assets/6ee08861-0b4e-435b-b530-249f75445135)
 
 #### Albacore tuna stocks map
-```
+```R
 map.stocks("ALB")
 ```
 ![image](https://github.com/user-attachments/assets/12f497ab-103f-42e1-b895-c9f95d49e61d)
 
 #### Albacore tuna stocks and sampling areas map
-```
+```R
 map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"))
 ```
 ![image](https://github.com/user-attachments/assets/0e196449-0d9c-47a5-9946-c7d39846a9cc)
 
 #### Albacore tuna stocks and sampling areas map (contours only, no labels)
-```
+```R
 map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE, add_labels = FALSE)
 ```
 ![image](https://github.com/user-attachments/assets/66be1f35-6893-4693-afc1-16ae5cc3ef36)
@@ -159,7 +159,7 @@ map.stocks("ALB", stock_codes = c("ALB-N", "ALB-M", "ALB-S"), fill_areas = FALSE
 > To run these examples we assume that the `CATDIS_current` object contains all CATDIS data as retrieved using the `iccat.dev.data::catdis` function.
 
 #### Albacore CATDIS data piemap by gear (1993-2022) with ICCAT convention area boundaries
-```
+```R
 # CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
@@ -179,7 +179,7 @@ map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >=
 ![image](https://github.com/user-attachments/assets/1c949340-6919-4165-9642-f99e5518f615)
 
 #### Albacore CATDIS data piemap by gear (1993-2022) limited to `LL` and `BB`
-```
+```R
 # CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
 map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >= 1993], gears_to_keep = c("LL", "BB"))
@@ -187,7 +187,7 @@ map.pie.catdis.gear(catdis_data = CATDIS_current[SpeciesCode == "ALB" & YearC >=
 ![image](https://github.com/user-attachments/assets/e802ec85-8f41-4f2a-9eed-73f04df5f230)
 
 #### Tropical tunas CATDIS data piemap by school type (1993-2022)
-```
+```R
 # CATDIS_current = catdis() # Requires access to the iccat.dev.data library
 
 map.pie.catdis.schooltype(catdis_data = CATDIS_current[SpeciesCode %in% c("BET", "SKJ", "YFT") & YearC >= 1993])
@@ -195,7 +195,7 @@ map.pie.catdis.schooltype(catdis_data = CATDIS_current[SpeciesCode %in% c("BET",
 ![image](https://github.com/user-attachments/assets/de9cc4a0-8e5c-47d3-a5f9-b0e6a24da1bc)
 
 #### Albacore baitboat CATDIS data heatmap (1993-2022) with ICCAT convention area boundaries
-```
+```R
 ATLANTIC_OCEAN_SF = geometries_for(ATLANTIC_OCEAN_RAW_GEOMETRY, target_crs = CRS_EQUIDISTANT)
 
 ICCAT_AREA =
