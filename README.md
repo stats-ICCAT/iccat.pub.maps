@@ -61,7 +61,12 @@ The optional dependency is only required if we need to update the reference data
 ```R
 library(devtools)
 
-install_github("stats-ICCAT/iccat.pub.maps", dependencies = TRUE)
+# To get a GitHub auth token: https://github.com/settings/tokens (ensure that the 'repo' permissions are assigned to the token)
+GITHUB_AUTH_TOKEN = < put your GitHub authentication token here >
+
+install_github("stats-ICCAT/iccat.pub.data", dependencies = TRUE)
+install_github("stats-ICCAT/iccat.pub.aes", dependencies = TRUE)
+install_github("stats-ICCAT/iccat.dev.data", dependencies = TRUE, auth_token = GITHUB_AUTH_TOKEN)
 ```
 
 # Updating the reference data
