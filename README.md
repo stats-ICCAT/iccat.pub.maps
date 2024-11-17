@@ -61,7 +61,7 @@ The optional dependency is only required if we need to update the reference data
 ```R
 library(devtools)
 
-install_github("stats-ICCAT/iccat.pub.maps")
+install_github("stats-ICCAT/iccat.pub.maps", dependencies = TRUE)
 ```
 
 # Updating the reference data
