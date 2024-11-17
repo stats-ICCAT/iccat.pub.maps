@@ -53,6 +53,7 @@ install.packages(c("ggplot2", "ggthemes", "ggnewscale", "colorspace", "scales", 
 ## Internal dependencies <a name="internal_deps"></a>
 + [iccat.pub.data](https://github.com/stats-ICCAT/iccat.pub.data)
 + [iccat.pub.aes](https://github.com/stats-ICCAT/iccat.pub.aes)
++ [iccat.dev.base](https://github.com/stats-ICCAT/iccat.dev.base) [`OPTIONAL`]
 + [iccat.dev.data](https://github.com/stats-ICCAT/iccat.dev.data) [`OPTIONAL`]
 
 The optional dependency is only required if we need to update the reference data. In this case, please ensure to follow the steps for the installation of all internal / external requirements for the `iccat.dev.data` library as available [here](https://github.com/stats-ICCAT/iccat.dev.data/?tab=readme-ov-file#external-dependencies-cran-).
@@ -66,6 +67,7 @@ GITHUB_AUTH_TOKEN = < put your GitHub authentication token here >
 
 install_github("stats-ICCAT/iccat.pub.data", dependencies = TRUE)
 install_github("stats-ICCAT/iccat.pub.aes", dependencies = TRUE)
+install_github("stats-ICCAT/iccat.dev.base", dependencies = TRUE, auth_token = GITHUB_AUTH_TOKEN)
 install_github("stats-ICCAT/iccat.dev.data", dependencies = TRUE, auth_token = GITHUB_AUTH_TOKEN)
 ```
 
