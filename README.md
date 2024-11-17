@@ -88,14 +88,15 @@ Assuming that all [external](#external_deps) and [internal](#internal_deps) depe
 
 or by executing the following statement:
 
-`devtools::document(roclets = c('rd', 'collate', 'namespace'))`
+```R
+devtools::document(roclets = c('rd', 'collate', 'namespace'))
+```
 
 ## Usage examples
 
 ### Loading the library
 
 For the examples to work, the following statement should be executed once per session:
-
 ```R
 library(iccat.pub.maps)
 ```
