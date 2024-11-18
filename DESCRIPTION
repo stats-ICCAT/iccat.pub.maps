@@ -1,11 +1,11 @@
 Package: iccat.pub.maps
 Type: Package
-Title: TBD
+Title: ICCAT public maps libraries
 Version: 0.1.1
 Author: ICCAT Secretariat
 Maintainer: Fabio Fiorellato <fabio.fiorellato@iccat.int>
-Description: TBD
-    TBD.
+Description: A set of functions and constants to support the production of *static* maps of the Atlantic ocean, including ICCAT sub-areas / stock areas / sampling areas and regular grids.
+    This library does not require access to the ICCAT databases (which are private) if not to update (at build time, and if explicitly required) the embedded reference data of ICCAT areas etc. 
 License: TBD
 Encoding: UTF-8
 LazyData: true
